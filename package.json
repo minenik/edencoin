@@ -2,16 +2,32 @@
   "name": "edencoin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app": "npx electron . --enable-logging",
+    "build-renderer-js": "set BABEL_ENV=renderer&& npx babel ./src/renderer/js -d ./dist/renderer/js --source-maps",
+    "build-renderer-resources": "npx webpack",
+    "build-main": "set BABEL_ENV=main&& npx babel ./src/main/ -d ./dist/main --source-maps",
+    "build-renderer": "npm run build-renderer-js && npm run build-renderer-resources",
+    "start": "npm run build-main && npm run build-renderer && npm run app"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-  },
   "dependencies": {
-    "webpack": "^4.1.0",
-    "electron": "^1.8.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "electron": "^1.7.10",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.10.0"
   }
 }
