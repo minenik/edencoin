@@ -9,3 +9,12 @@ Welcome to EdenCoin GitHub page!
 - [Webpack](https://github.com/webpack/webpack)
 
 > ToDo: add main content :smile:
+
+## Testing
+
+This project uses [Mocha](https://mochajs.org) for unit tests.
+Run tests with:
+
+```bash
+npm test
+```

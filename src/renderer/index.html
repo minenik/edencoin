@@ -1,10 +1,17 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <div>
-            Hello EdenCoin
+        <div id="wallet">
+            <h1>Balance: <span id="balance"></span></h1>
+            <form id="send-form">
+                <input type="text" name="address" placeholder="Address">
+                <input type="number" name="amount" placeholder="Amount">
+                <button type="submit">Send</button>
+            </form>
+            <h2>History</h2>
+            <div id="history"></div>
         </div>
         <script src="js/script.js"></script>
         <script>
