@@ -9,7 +9,8 @@
     "build-renderer-resources": "npx webpack",
     "build-main": "set BABEL_ENV=main&& npx babel ./src/main/ -d ./dist/main --source-maps",
     "build-renderer": "npm run build-renderer-js && npm run build-renderer-resources",
-    "start": "npm run build-main && npm run build-renderer && npm run app"
+    "start": "npm run build-main && npm run build-renderer && npm run app",
+    "test": "npx -y mocha"
   },
   "author": "",
   "license": "ISC",
@@ -27,7 +28,7 @@
     "file-loader": "^1.1.6",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
-    "ffi": "^2.2.0",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "mocha": "^10.0.0"
   }
 }
