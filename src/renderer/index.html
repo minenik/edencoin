@@ -14,5 +14,10 @@
             <div id="history"></div>
         </div>
         <script src="js/script.js"></script>
+        <script>
+            window.blocxus.generateAddress().then(addr => {
+                console.log('Generated address:', addr);
+            });
+        </script>
     </body>
 </html>

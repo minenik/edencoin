@@ -1,14 +1,32 @@
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
+const blocxus = require('./blocxus');
 
 // Храните глобальную ссылку на объект окна, если вы этого не сделаете, окно будет
 // автоматически закрываться, когда объект JavaScript собирает мусор.
 let win;
 
+ipcMain.handle('generate-address', () => blocxus.generateAddress());
+ipcMain.handle('get-balance', (event, address) => blocxus.getBalance(address));
+ipcMain.handle('send-transaction', (event, tx) => {
+    try {
+        return blocxus.sendTransaction(tx);
+    } catch (e) {
+        return { error: e.message };
+    }
+});
+
 function createWindow () {
     // Создаёт окно браузера.
-    win = new BrowserWindow({width: 800, height: 600});
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
+    });
 
     // и загрузит index.html приложение.
     win.loadURL(url.format({
