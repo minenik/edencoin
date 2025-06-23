@@ -1,0 +1,44 @@
+#wallet {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#balance {
+  font-size: 2em;
+}
+
+#send-form {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+#send-form input {
+  flex: 1;
+  padding: 5px;
+}
+
+#send-form button {
+  padding: 5px 10px;
+}
+
+#history {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+#history .tx-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#history .positive {
+  color: green;
+}
+
+#history .negative {
+  color: red;
+}
